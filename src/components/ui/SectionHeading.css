@@ -1,0 +1,142 @@
+/* ==========================================================================
+   SectionHeading styles: badge + bada heading + gol ellipse + chhota text
+   ========================================================================== */
+
+.sh {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+}
+
+.sh--center {
+  align-items: center;
+  text-align: center;
+}
+
+.sh--left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* ---------- Badge (chhota label) ---------- */
+.sh__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.sh--light .sh__badge {
+  background: var(--color-bg-white);
+  border-color: var(--color-border-light);
+  color: var(--color-text-on-light);
+}
+
+.sh--dark .sh__badge {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-border-dark);
+  color: var(--color-text-on-dark);
+}
+
+/* ---------- Heading ---------- */
+.sh__title {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-tight);
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.sh--light .sh__title {
+  color: var(--color-text-on-light);
+}
+
+.sh--dark .sh__title {
+  color: var(--color-text-on-dark);
+}
+
+/* Left align wale heading ko thodi zyada chaudai */
+.sh--left .sh__title {
+  max-width: 20ch;
+}
+
+/* ---------- Highlight word + ellipse ---------- */
+.sh__highlight {
+  position: relative;
+  display: inline-block;
+  padding-inline: 0.12em;
+  white-space: nowrap;
+}
+
+.sh__ellipse {
+  position: absolute;
+  top: -0.14em;
+  left: -0.3em;
+  width: calc(100% + 0.6em);
+  height: calc(100% + 0.28em);
+  max-width: none; /* global.css ka svg { max-width: 100% } yahan hatana zaroori hai */
+  pointer-events: none;
+  overflow: visible;
+}
+
+.sh__ellipse ellipse {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke; /* stretch hone par bhi lakeer ek jitni motti */
+}
+
+/* Heading screen par aaye to ellipse halka sa bada hoke aaye */
+.sh__ellipse {
+  opacity: 0;
+  transform: scale(0.85);
+  transform-origin: center;
+  transition: opacity var(--dur-slow) var(--ease-out) 0.35s,
+    transform var(--dur-slow) var(--ease-out) 0.35s;
+}
+
+.sh__title.is-visible .sh__ellipse {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Paragraph ---------- */
+.sh__text {
+  max-width: 58ch;
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+}
+
+.sh--light .sh__text {
+  color: var(--color-text-on-light-muted);
+}
+
+.sh--dark .sh__text {
+  color: var(--color-text-on-dark-muted);
+}
+
+/* ---------- Chhoti screens ---------- */
+@media (max-width: 640px) {
+  .sh {
+    margin-bottom: var(--space-6);
+  }
+
+  .sh__title {
+    max-width: 14ch;
+  }
+}
+
+/* ---------- Reduced motion: ellipse seedha dikhe ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .sh__ellipse {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

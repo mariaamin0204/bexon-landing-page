@@ -1,0 +1,217 @@
+/* ==========================================================================
+   ShotPlaceholder styles: CSS se bani nakli website screenshot.
+   Saare sizes dabbe ki chaudai (cqw) ke hisaab se hain, is liye ye dabba
+   chhota ho ya bada, andar ki cheezein barabar chhoti/badi hoti hain.
+   ========================================================================== */
+
+.shot {
+  /* Har tone in variables ko apne rang se badalta hai (neeche dekhein) */
+  --s-bg: #f4f8fa;
+  --s-bar: #ffffff;
+  --s-border: rgba(10, 16, 23, 0.08);
+  --s-line: #1b2733;
+  --s-line-soft: #b9c4cc;
+  --s-accent: var(--color-accent);
+  --s-photo: linear-gradient(135deg, #0e5a73 0%, #2ab7dc 100%);
+  --s-card: #ffffff;
+
+  container-type: inline-size;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--s-bg);
+  user-select: none;
+}
+
+/* ---------- Tones ---------- */
+
+/* 1: halka (light) + teal photo */
+.shot--tone-1 {
+  --s-bg: #f1f6f8;
+  --s-photo: linear-gradient(135deg, #0e5a73 0%, #2ab7dc 100%);
+}
+
+/* 2: dark */
+.shot--tone-2 {
+  --s-bg: #0e1822;
+  --s-bar: #0a1017;
+  --s-border: rgba(255, 255, 255, 0.08);
+  --s-line: #ffffff;
+  --s-line-soft: #4a5b6a;
+  --s-photo: linear-gradient(135deg, #1b3a4d 0%, #2ab7dc 100%);
+  --s-card: #14222e;
+}
+
+/* 3: teal */
+.shot--tone-3 {
+  --s-bg: linear-gradient(160deg, #0e6c85 0%, #1ba7c4 100%);
+  --s-bar: rgba(255, 255, 255, 0.12);
+  --s-border: rgba(255, 255, 255, 0.18);
+  --s-line: #ffffff;
+  --s-line-soft: rgba(255, 255, 255, 0.55);
+  --s-accent: #0a1017;
+  --s-photo: linear-gradient(135deg, #0a1017 0%, #1b3a4d 100%);
+  --s-card: rgba(255, 255, 255, 0.16);
+}
+
+/* 4: safed + dark photo */
+.shot--tone-4 {
+  --s-bg: #ffffff;
+  --s-bar: #f4f6f8;
+  --s-photo: linear-gradient(135deg, #0a1017 0%, #1f3647 100%);
+  --s-card: #f1f6f8;
+}
+
+/* ---------- Header bar ---------- */
+.shot__bar {
+  flex: 0 0 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 5%;
+  background: var(--s-bar);
+  border-bottom: 1px solid var(--s-border);
+}
+
+.shot__logo {
+  width: 9cqw;
+  height: 3.2cqw;
+  border-radius: 1cqw;
+  background: var(--s-accent);
+}
+
+.shot__nav {
+  display: flex;
+  gap: 3cqw;
+  width: 32%;
+  justify-content: center;
+}
+
+.shot__nav i {
+  flex: 1;
+  height: 0.9cqw;
+  min-height: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--s-line-soft);
+}
+
+.shot__pill {
+  width: 11cqw;
+  height: 3.6cqw;
+  border-radius: var(--radius-pill);
+  background: var(--s-accent);
+}
+
+/* ---------- Body ---------- */
+.shot__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 5cqw;
+  gap: 5cqw;
+}
+
+/* Text ki lakeerein */
+.shot__line {
+  display: block;
+  width: 100%;
+  height: 3.4cqw;
+  border-radius: var(--radius-pill);
+  background: var(--s-line);
+}
+
+.shot__line--short {
+  width: 68%;
+}
+
+.shot__line--sub {
+  height: 1.6cqw;
+  width: 88%;
+  background: var(--s-line-soft);
+}
+
+.shot__cta {
+  display: block;
+  width: 34%;
+  height: 4.4cqw;
+  margin-top: 1.5cqw;
+  border-radius: var(--radius-pill);
+  background: var(--s-accent);
+}
+
+/* ---------- Variant: home ---------- */
+.shot__hero {
+  flex: 1.5;
+  display: flex;
+  gap: 5cqw;
+  min-height: 0;
+}
+
+.shot__copy {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.2cqw;
+}
+
+.shot__photo {
+  flex: 1;
+  border-radius: 2cqw;
+  background: var(--s-photo);
+}
+
+.shot__cards {
+  flex: 0.8;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5cqw;
+  min-height: 0;
+}
+
+.shot__card {
+  border-radius: 1.6cqw;
+  background: var(--s-card);
+  border: 1px solid var(--s-border);
+}
+
+/* ---------- Variant: inner ---------- */
+.shot__body--inner {
+  align-items: center;
+  gap: 2.4cqw;
+}
+
+.shot__body--inner .shot__line--title {
+  width: 48%;
+}
+
+.shot__body--inner .shot__line--sub {
+  width: 66%;
+}
+
+.shot__tiles {
+  flex: 1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3cqw;
+  margin-top: 2cqw;
+  min-height: 0;
+}
+
+.shot__tile {
+  border-radius: 1.6cqw;
+  background: var(--s-card);
+  border: 1px solid var(--s-border);
+}
+
+.shot__tile:nth-child(odd) {
+  background: var(--s-photo);
+  border-color: transparent;
+}

@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Button styles: accent (teal), light (safed), lime (hara-peela)
+   Reference ke "Explore Demos" button ke naap se bana hai.
+   ========================================================================== */
+
+.btn {
+  --btn-icon-bg: #0c1e21; /* gol icon dabba ka gehra rang */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    background-color var(--dur-fast) ease,
+    color var(--dur-fast) ease;
+}
+
+/* ---------- Sizes (min-height se phone par tap karna aasan rehta hai) ---------- */
+.btn--md {
+  min-height: 60px;
+  padding: 0 30px;
+  font-size: var(--fs-md);
+}
+
+.btn--sm {
+  min-height: 44px;
+  padding: 0 20px;
+  font-size: var(--fs-sm);
+}
+
+/* Icon wala button: icon ki taraf sirf 5px, taake gol dabba kinare ke qareeb rahe */
+.btn--md:has(.btn__icon) {
+  padding-right: 5px;
+}
+
+.btn--sm:has(.btn__icon) {
+  padding-right: 4px;
+}
+
+/* ---------- Gol icon dabba ---------- */
+.btn__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--btn-icon-bg);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.btn--sm .btn__icon {
+  width: 36px;
+  height: 36px;
+}
+
+.btn__icon svg {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+/* ---------- Variant: accent (teal, safed text) ---------- */
+.btn--accent {
+  background: var(--color-accent);
+  color: var(--color-text-on-dark);
+}
+
+.btn--accent:hover {
+  transform: translateY(-2px);
+  background: #25a3a1;
+  box-shadow: var(--shadow-glow);
+}
+
+/* ---------- Variant: light (safed) ---------- */
+.btn--light {
+  background: var(--color-bg-white);
+  color: var(--color-text-on-light);
+}
+
+.btn--light:hover {
+  transform: translateY(-2px);
+  background: #e6f4f3;
+  box-shadow: 0 8px 22px rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Variant: lime ---------- */
+.btn--lime {
+  background: var(--color-lime);
+  color: var(--color-bg-dark);
+}
+
+.btn--lime:hover {
+  transform: translateY(-2px);
+  background: var(--color-lime-hover);
+  box-shadow: 0 10px 28px rgba(197, 242, 48, 0.4);
+}
+
+/* ---------- Hover par icon halka sa hilta hai ---------- */
+.btn:hover .btn__icon svg {
+  transform: translate(2px, -2px);
+}
+
+/* ---------- Click karte waqt ---------- */
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ---------- Keyboard focus ---------- */
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent-light);
+  outline-offset: 3px;
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- Reduced motion: button hilega nahi ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .btn:active {
+    transform: none;
+  }
+
+  .btn:hover .btn__icon svg {
+    transform: none;
+  }
+}
